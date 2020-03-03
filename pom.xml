@@ -16,23 +16,6 @@
 
 	<dependencies>
 
-		<!-- BYTECODE MANIPULATION -->
-
-		<dependency>
-			<!-- Needed by hibernate -->
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.25.0-GA</version>
-		</dependency>
-
-		<!-- XML -->
-
-		<dependency>
-			<!-- Used to come with jdk, not anymore. Needed by hibernate. -->
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-		</dependency>
-
 		<!-- COMMONS -->
 
 		<dependency>
@@ -55,39 +38,11 @@
 			<version>2.0.0.RELEASE</version>
 		</dependency>
 
-		<!-- DATABASE -->
-
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<!-- Used to come with jdk, not anymore. Needed by hibernate. -->
-			<groupId>org.eclipse.persistence</groupId>
-			<artifactId>eclipselink</artifactId>
-			<version>2.7.4</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-dbcp</artifactId>
-			<version>9.0.1</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- TEST -->
@@ -217,9 +172,6 @@
 				</executions>
 				
 				<configuration>
-	                <outputDirectory>
-	                    /src
-	                </outputDirectory>
 	                <outputDirectory>
 	                    ${project.build.directory}
 	                </outputDirectory>

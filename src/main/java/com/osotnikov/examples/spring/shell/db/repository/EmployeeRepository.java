@@ -3,6 +3,7 @@ package com.osotnikov.examples.spring.shell.db.repository;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.osotnikov.examples.spring.shell.db.entities.EducationLevel;
 import org.springframework.stereotype.Repository;
 
 import com.osotnikov.examples.spring.shell.db.entities.Department;
@@ -14,8 +15,14 @@ public class EmployeeRepository {
 	Set<Employee> employees = new HashSet<>();
 
 	private void init() {
-		Employee employee = new Employee();
-		employee.setBirthDate(
+		Employee employee = Employee.builder()
+			.employeeId(0)
+			.department(Department.ACCOUNTING)
+			.educationLevel(EducationLevel.BACHELOR)
+			.firstName("James")
+			.lastName("Hetfield")
+			.build();
+	employee.setBirthDate(
 			new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime());
 		employee.setDepartment(Department.ACCOUNTING);
 		employee.setEducationLevel("University");
@@ -27,7 +34,7 @@ public class EmployeeRepository {
 		return employees.stream().filter(employee -> {
 			if(payType != null) {
 				if() {
-					employee.getPosition();
+					employee.getr;
 				}
 			}
 			if(departmentId != null) {
