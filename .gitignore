@@ -1,0 +1,11 @@
+/target/
+/bin/
+.classpath
+.project
+/.settings/*
+spring-shell.log
+/logs/
+/matillion_assignment.iml
+/matillion_assignment-0.0.1-SNAPSHOT.jar
+/.idea/
+/spring_shell_example.iml
