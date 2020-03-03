@@ -1,7 +1,6 @@
 package com.osotnikov.examples.spring.shell.db.repository;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import javax.persistence.EntityGraph;
 import javax.persistence.EntityManager;
@@ -23,8 +22,16 @@ import com.osotnikov.examples.spring.shell.db.entities.Position;
 @Repository
 public class EmployeeRepository {
 
-	@PersistenceContext
-	private EntityManager em;
+	Set<Employee> employees = new HashSet<>();
+
+	private void init() {
+		Employee employee = new Employee();
+		employee.setBirthDate(
+			new GregorianCalendar(2014, Calendar.FEBRUARY, 11).getTime());
+		employee.setDepartment(Department.ACCOUNTING);
+		employee.setEducationLevel("University");
+		employees.add(employee);
+	}
 
 	public List<Employee> findEmployeesBy(String payType, Long departmentId, String educationLevel) {
 
