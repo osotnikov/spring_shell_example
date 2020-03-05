@@ -7,9 +7,18 @@ public enum EducationLevel {
     MASTERS("Master's Degree"),
     PHD("Doctorate");
 
-    private String educationLevel;
+    private String level;
 
-    EducationLevel(String educationLevel) {
-        this.educationLevel = educationLevel;
+    EducationLevel(String level) {
+        this.level = level;
+    }
+
+    public static EducationLevel fetchByLevel(String level) {
+        for(EducationLevel educationLevel : EducationLevel.values()) {
+            if(educationLevel.level == level) {
+                return  educationLevel;
+            }
+        }
+        return null;
     }
 }

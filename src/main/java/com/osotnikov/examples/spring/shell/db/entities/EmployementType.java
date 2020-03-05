@@ -5,9 +5,18 @@ public enum EmployementType {
     CONTRACTOR("Contractor"),
     PERMANENT("Permanent");
 
-    String employmentType;
+    String type;
 
-    EmployementType(String employmentType) {
-        this.employmentType = employmentType;
+    EmployementType(String type) {
+        this.type = type;
+    }
+
+    public static EmployementType fetchByType(String type) {
+        for(EmployementType employementType : EmployementType.values()) {
+            if(employementType.type == type) {
+                return  employementType;
+            }
+        }
+        return null;
     }
 }

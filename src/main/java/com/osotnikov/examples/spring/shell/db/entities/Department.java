@@ -12,4 +12,13 @@ public enum Department {
 	Department(int id) {
 		this.id = id;
 	}
+
+	public static Department fetchById(int id) {
+		for(Department department : Department.values()) {
+			if(department.id == id) {
+				return  department;
+			}
+		}
+		return null;
+	}
 }

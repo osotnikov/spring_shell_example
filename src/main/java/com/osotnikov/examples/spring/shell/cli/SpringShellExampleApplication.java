@@ -2,7 +2,10 @@ package com.osotnikov.examples.spring.shell.cli;
 
 import java.util.List;
 
+import com.osotnikov.examples.spring.shell.db.entities.Department;
+import com.osotnikov.examples.spring.shell.db.entities.EducationLevel;
 import com.osotnikov.examples.spring.shell.db.entities.Employee;
+import com.osotnikov.examples.spring.shell.db.entities.EmployementType;
 import com.osotnikov.examples.spring.shell.service.EmployeeDisplayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
@@ -37,11 +40,12 @@ public class SpringShellExampleApplication {
 			"ease of use (prefixes allow any ordering of arguments). You can omit some or all of the arguments, the query " +
 			"will not be restricted by these arguments in that case.")
 	public String findEmployeesBy(
-			@ShellOption(value = {"-t", "--employment-type"}, defaultValue=ShellOption.NULL)  String paymentType,
-			@ShellOption(value = {"-d", "--department-id"}, defaultValue=ShellOption.NULL) Long departmentId,
+			@ShellOption(value = {"-t", "--employment-type"}, defaultValue=ShellOption.NULL)  String employmentType,
+			@ShellOption(value = {"-d", "--department-id"}, defaultValue=ShellOption.NULL) int departmentId,
 			@ShellOption(value = {"-e", "--education-level"}, defaultValue=ShellOption.NULL) String educationLevel) {
 
-		List<Employee> employees = employeeRepository.findEmployeesBy(paymentType, departmentId, educationLevel);
+		List<Employee> employees = employeeRepository.findEmployeesBy(
+			EmployementType.fetchByType(employmentType), Department.fetchById(departmentId), EducationLevel.fetchByLevel(educationLevel));
 
 		return employeeDisplayer.employeesAsString(employees);
 	}
