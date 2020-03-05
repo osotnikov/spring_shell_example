@@ -35,8 +35,8 @@ public class SpringShellExampleApplication {
 		return stringCompareService.findNumberOfDifferencesInEqualLengthStrings(str1, str2);
 	}
 
-	@ShellMethod(key = "find-employee", value = "Find all employees by these parameters in the specific order: payment type, " +
-			"department id and education level. Prefix arguments with --employment-type/-p, --department-id/-d and --education-level/-e flags for " +
+	@ShellMethod(key = "find-employee", value = "Find all employees by these parameters in the specific order: employment type, " +
+			"department id and education level. Prefix arguments with --employment-type/-t, --department-id/-d and --education-level/-e flags for " +
 			"ease of use (prefixes allow any ordering of arguments). You can omit some or all of the arguments, the query " +
 			"will not be restricted by these arguments in that case.")
 	public String findEmployeesBy(
