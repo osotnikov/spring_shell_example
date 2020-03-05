@@ -43,20 +43,20 @@ public class EmployeeRepository {
 				.build());
 	}
 
-	public List<Employee> findEmployeesBy(String payType, Long departmentId, String educationLevel) {
+	public List<Employee> findEmployeesBy(EmployementType employementType, Department department, EducationLevel educationLevel) {
 
 		return employees.stream().filter(employee -> {
-			if(payType != null) {
-				if() {
-					employee.getr;
-				}
-			}
-			if(departmentId != null) {
 
+			if(employementType != null && !employementType.equals(employee.getEmployementType())) {
+				return false;
 			}
-			if(educationLevel != null) {
-
+			if(department != null && !department.equals(employee.getDepartment())) {
+				return false;
 			}
+			if(educationLevel != null && !educationLevel.equals(employee.getEducationLevel())) {
+				return false;
+			}
+			return true;
 		}).collect(Collectors.toList());
 	}
 
